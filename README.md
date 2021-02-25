@@ -68,3 +68,56 @@ Afterwards the config file can be edited
 
 There is a [documentation for the openttd.cfg](https://wiki.openttd.org/en/Archive/Manual/Settings/Openttd.cfg) settings in the OpenTTD wiki.
 
+### Automatically start the server
+#### Set Reboot-Cronjob
+
+I also want to automatically start the server but the mentioned 'OpenTTD init-script' from **Frode Woldsund** is not available anymore at bitbucket.org.
+So here is a solution suitable for my private server:
+
+My Raspberry Pi performs a reboot every 12 hours via manually set cronjobs.
+
+The reboot needs '**sudo**'-permissions so the cronjobs for rebooting are added to the 'root-crontab'.
+
+```sudo crontab -e```
+
+#### Start-Script
+
+I wrote my own start-script for the server which also loads the latest autosave: **startopenttdserver.sh**
+I put the script in the pi home directory ```/home/pi/startopenttdserver.sh```
+
+Make the script executable:
+
+```chmod +x /home/pi/startopenttdserver.sh```
+
+#### Install screen
+
+**screen** is needed to run the start script. Install screen!
+
+```sudo apt-get install screen```
+
+#### Execute Script at reboot
+
+Enter the reboot-order to the **crontab of user** pi. Type the command like above **without** sudo.
+
+```crontab -e```
+
+This creates/opens a seperate crontab-file.
+
+Enter the following to that file:
+
+```SHELL=/bin/bash```
+
+```@reboot /bin/bash /home/pi/startopenttdserver.sh```
+
+**Note:** The start-script can also be executed manually like any other shell-script.
+
+**NOTE:** If you perform any changes to crontabs or the start-script you have to use **absolute paths**. Otherwise it won't work.
+
+#### What does the script do?
+
+The script creates a detached screen-terminal (name=openttd) to keep the server running when logging out from SSH.
+
+The script executes the start-command in the openttd-screen.
+The server boots and now in the openttd-screen the server-console is running.
+The script navigates to the autosave directory and loads the latest autosave.
+Between these steps the script waits a short interval so te Raspberry has time to perform the commands.
