@@ -111,7 +111,7 @@ Enter the following to that file:
 
 **Note:** The start-script can also be executed manually like any other shell-script.
 
-**NOTE:** If you perform any changes to crontabs or the start-script you have to use **absolute paths**. Otherwise it won't work.
+**Note:** If you perform any changes to crontabs or the start-script you have to use **absolute paths**. Otherwise it won't work.
 
 #### What does the script do?
 
@@ -120,4 +120,4 @@ The script creates a detached screen-terminal (name=openttd) to keep the server 
 The script executes the start-command in the openttd-screen.
 The server boots and now in the openttd-screen the server-console is running.
 The script navigates to the autosave directory and loads the latest autosave.
-Between these steps the script waits a short interval so te Raspberry has time to perform the commands.
+Between these steps the script waits a short interval so the Raspberry has time to perform the commands.
