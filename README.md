@@ -80,6 +80,8 @@ The reboot needs '**sudo**'-permissions so the cronjobs for rebooting are added 
 
 ```sudo crontab -e```
 
+(Location of this cron-file: ```/var/spool/cron/crontabs/root``` 'root' is the cron-file.)
+
 #### Start-Script
 
 I wrote my own start-script for the server which also loads the latest autosave: **startopenttdserver.sh**
@@ -100,6 +102,8 @@ Make the script executable:
 Enter the reboot-order to the **crontab of user** pi. Type the command like above **without** sudo.
 
 ```crontab -e```
+
+(Location of this cron-file: ```/var/spool/cron/crontabs/pi``` 'pi' is the cron-file.)
 
 This creates/opens a seperate crontab-file.
 
