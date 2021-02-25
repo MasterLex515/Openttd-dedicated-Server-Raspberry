@@ -74,7 +74,7 @@ There is a [documentation for the openttd.cfg](https://wiki.openttd.org/en/Archi
 I also want to automatically start the server but the mentioned 'OpenTTD init-script' from **Frode Woldsund** is not available anymore at bitbucket.org.
 So here is a solution suitable for my private server:
 
-My Raspberry Pi performs a reboot every 12 hours via manually set cronjobs.
+My Raspberry Pi performs a reboot every 12 hours via manually set cronjobs. (root-example-cron-file)
 
 The reboot needs '**sudo**'-permissions so the cronjobs for rebooting are added to the 'root-crontab'.
 
@@ -107,7 +107,7 @@ Enter the reboot-order to the **crontab of user** pi. Type the command like abov
 
 This creates/opens a seperate crontab-file.
 
-Enter the following to that file:
+Enter the following to that file: (pi-example-cron-file)
 
 ```SHELL=/bin/bash```
 
