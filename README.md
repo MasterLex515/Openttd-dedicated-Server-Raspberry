@@ -125,3 +125,15 @@ The script executes the start-command in the openttd-screen.
 The server boots and now in the openttd-screen the server-console is running.
 The script navigates to the autosave directory and loads the latest autosave.
 Between these steps the script waits a short interval so the Raspberry has time to perform the commands.
+
+### Server Console
+
+Use ```screen -ls``` to check whether a screen named 'openttd' exists.
+
+Attach (view the server console) with ```screen -r openttd```
+
+If the OpenTTD-Server is running the command ```screen -d```(for detaching) won't work. Then use the Keys: Ctrl+a d (Works also with *JuiceSSH*)
+
+For an SSH connection via mobile phone I use [JuiceSSH](https://juicessh.com/)
+
+**Before logging** out make sure that you are **detached** from the openttd-screen. Otherwise the server will stop at logout.
